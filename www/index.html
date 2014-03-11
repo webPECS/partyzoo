@@ -340,7 +340,7 @@ function onDeviceReady() {
 	});
 
 	$(".hatter-nav-mentes").on( "click", function() {
-		var kep_fajlnev = 'hatterkep_'+kep_szam+'_'+kep_meret1+'_'+kep_meret2+'.jpg';
+		var kep_fajlnev = 'hatterkep_' + kep_szam + '_' + kep_meret1 + '_' + kep_meret2 + '.jpg';
 		var kep_url = 'http://www.partyzoo.hu/hatterkep/'+kep_szam+'.jpg';
 		FajlLetoltes(kep_fajlnev,kep_url);
 	});
@@ -464,8 +464,7 @@ function FajlLetoltes(fajlnev,url) {
 //             }
 							
             var ft = new FileTransfer();
-            ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); 
-			}, function(error) { Uzenet('Hiba történt a fájl mentése közben: 1'); }, true);
+            ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); }, function(error) { Uzenet('Hiba történt a fájl mentése közben: 1'); }, true);
         }, function() { Uzenet('Hiba történt a fájl mentése közben: 2'); });
     }, function() { Uzenet('Hiba történt a fájl mentése közben: 3'); });
   }, function() { Uzenet('Hiba történt a fájl mentése közben: 4'); });
