@@ -12,8 +12,6 @@
 <script type="text/javascript" src="phonegap.js"></script>
 
 <style>
-<<<<<<< HEAD
-<<<<<<< HEAD
 .royalSlider {
 	width: 500px;
 	height: 400px;
@@ -33,51 +31,21 @@
 	margin:0 auto;
 	padding:0;
 	margin-top:0.75em;
-=======
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-
-body {
-    overflow:hidden;
-}
-#partyzoo {
-	margin-top:0.5em;
-	margin:0 auto;
-<<<<<<< HEAD
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 }
 .royalSlider img {
 	border:1px solid #000000;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
-
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 </style>
 </head>
 
 <body>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:visible;"> </div>
 
     <div id="kep-content">
       <div id="partyzoo" class="royalSlider">
       </div>
     </div>
-=======
-<div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:hidden;"> </div>
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
-<div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:hidden;"> </div>
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 
 <div id="wrap">
 
@@ -159,13 +127,6 @@ body {
     <div id="kep-nav-wrap">
       <div id="kep-nav"></div>
     </div>
-<<<<<<< HEAD
-=======
-    <div id="kep-content">
-      <div id="partyzoo" class="royalSlider">
-      </div>
-    </div>
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
   </div>
 
   <div id="hatter">
@@ -208,14 +169,6 @@ function PagePosition() {
 	$('#index a, h1, .rimg-row').css('margin-bottom', link_margin+'px');
 	$('#index img').css('margin-top', link_margin*2+'px');
 	$('#index img').css('margin-bottom', link_margin*2+'px');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	$('#partyzoo').css('width', page_width*0.95+'px');
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
-	$('#partyzoo').css('width', page_width*0.95+'px');
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 }
 
 function Link(page,id,from) {
@@ -248,8 +201,6 @@ function Link(page,id,from) {
 			  success: function(data) {
 				$('#loader').hide();
 				if (page=='kep') {
-<<<<<<< HEAD
-<<<<<<< HEAD
 //					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
@@ -264,20 +215,6 @@ function Link(page,id,from) {
 					SliderInit(parseInt(kep_adatok[1]));
 					$("#kep-content").show();					
 //					$("html, body").animate({ scrollTop: 100 }, 1000);
-=======
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
-//					kep_adatok = data.split("+");
-					$("#"+page+"-content").html(data);
-					SliderInit();
-					$("html, body").animate({ scrollTop: 100 }, 1000);
-				} else if (page=='hatter') {
-					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
-					kep_adatok = data.split("+");
-					$("#"+page+"-content").html(kep_adatok[0]);
-					$("html, body").animate({ scrollTop: 100 }, 1000);
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 				} else {
 					$("#"+page+"-content").html(data);
 				}
@@ -409,24 +346,14 @@ function onDeviceReady() {
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 function SliderInit(slid) {
 
   $('.royalSlider').css('width', page_width +'px');
-=======
-function SliderInit() {
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
-function SliderInit() {
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 
   $(".royalSlider").royalSlider({
 			numImagesToPreload: 4,
 			navigateByClick: false,
 			imageScaleMode: 'fit',
-<<<<<<< HEAD
-<<<<<<< HEAD
 			imageScalePadding: 5,
 			controlsInside: false,
 			allowCSS3: false,
@@ -454,34 +381,6 @@ function SliderInit() {
     window.plugins.orientationchanger.lockOrientation('portrait');
 	$("#wrap").toggle();
     $("#partyzoo").toggle();
-=======
-			imageScalePadding: 0,
-            keyboardNavEnabled: true
-        });
-
-  var slider = $(".royalSlider").data('royalSlider');
-	
-=======
-			imageScalePadding: 0,
-            keyboardNavEnabled: true
-        });
-
-  var slider = $(".royalSlider").data('royalSlider');
-	
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-  slider.ev.on('rsSlideClick', function(event, originalEvent) {
-    $('#proba').html('<img src="'+ slider.currSlide.image +'" />');
-    currentId = slider.currSlideId;
-    $("#proba").toggle();
-    $("#partyzoo").toggle();
-  });
-	
-  $("#proba").click(function() {
-    $("#partyzoo").toggle();		
-<<<<<<< HEAD
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
     slider.goTo(currentId);
     $("#proba").toggle();
   });

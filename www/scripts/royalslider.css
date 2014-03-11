@@ -1,21 +1,6 @@
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-.royalSlider {
-	width: 600px;
-	height: 400px;
-	position: relative;
-	direction: ltr;
-}
-<<<<<<< HEAD
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
-=======
->>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
 .royalSlider > * {
 	float: left;
 }
