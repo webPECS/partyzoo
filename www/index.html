@@ -329,19 +329,19 @@ function onDeviceReady() {
 	$("#search").val(str_search);
 	
 	$(".kep-nav-mentes").on( "click", function() {
-		var kep_fajlnev = kep_link+'_'+kep_szam+'.jpg';
+		var kep_fajlnev = 'kepriport_'.kep_konyvtar+'_'+kep_szam+'.jpg';
 		var kep_url = 'http://www.partyzoo.hu/galeriak/'+kep_konyvtar+'/'+kep_szam+'.jpg';		
 		FajlLetoltes(kep_fajlnev,kep_url);
 	});
 
 	$(".kep-nav-megosztas").on( "click", function() {
 		var klink = 'http://www.partyzoo.hu/kep/'+kep_link+'/'+kep_szam;
-		window.plugins.socialsharing.share(null, null, null, kep_link);
+		window.plugins.socialsharing.share(null, null, null, klink);
 	});
 
 	$(".hatter-nav-mentes").on( "click", function() {
-		var kep_fajlnev = 'wallpaper_'+kep_szam+'_'+kep_meret1+'_'+kep_meret2+'.jpg';
-		var kep_url = 'http://www.partyzoo.hu/hatterkep/'+kep_szam+'.jpg';		
+		var kep_fajlnev = 'hatterkep_'+kep_szam+'_'+kep_meret1+'_'+kep_meret2+'.jpg';
+		var kep_url = 'http://www.partyzoo.hu/hatterkep/'+kep_szam+'.jpg';
 		FajlLetoltes(kep_fajlnev,kep_url);
 	});
 	
@@ -402,7 +402,7 @@ function SliderInit(slid) {
   slider.ev.on('rsSlideClick', function(event, originalEvent) {
     $('#proba').html('<img src="'+ slider.currSlide.image +'" />');
 	if (slider.currSlide.iW > slider.currSlide.iH) {
-//		window.plugins.orientationchanger.lockOrientation('landscape');
+		window.plugins.orientationchanger.lockOrientation('landscape');
 	} 
     currentId = slider.currSlideId;
 	document.removeEventListener("backbutton", BackToIndex);	
@@ -415,7 +415,7 @@ function SliderInit(slid) {
 }
 
 function NagyKepKlikk() {
-//    window.plugins.orientationchanger.lockOrientation('portrait');
+    window.plugins.orientationchanger.lockOrientation('portrait');
     $("#proba").hide();
 	$("#wrap").show();
     $("#partyzoo").show();
