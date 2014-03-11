@@ -190,6 +190,7 @@ function Link(page,id,from) {
 	}
 	$('#'+current_page).fadeOut(200, function() {
 		if (page=='index') {
+			$('#loader').hide();
 			$('#'+page).fadeIn(200);
 		} else {
 			if (id>0) { page_link = '_' + page; } else { page_link = ''; }
@@ -204,19 +205,19 @@ function Link(page,id,from) {
 				if (page=='kep') {
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
-					kep_link = kep_adatok[2];
-					kep_konyvtar = kep_adatok[3];
-					kep_szam = kep_adatok[1];
+					window.kep_link = kep_adatok[2];
+					window.kep_konyvtar = kep_adatok[3];
+					window.kep_szam = kep_adatok[1];
 					SliderInit(parseInt(kep_szam)-1);
 					$("#kep-content").show();	
 									
 				} else if (page=='hatter') {
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
-					kep_meret1 = kep_adatok[2];
-					kep_meret2 = kep_adatok[3];
-					kep_szam = kep_adatok[1];
-					SliderInit(0);
+					window.kep_meret1 = kep_adatok[2];
+					window.kep_meret2 = kep_adatok[3];
+					window.kep_szam = kep_adatok[1];
+					SliderInit();
 					$("#kep-content").show();
 										
 				} else {
@@ -308,13 +309,7 @@ var page_width = 0;
 var kep_id = 0;
 var kep_max = 0;
 var ujfrom = new Array();
-var kep_link = '';
-var kep_konyvtar = '';
-var kep_szam = '';
-var kep_meret1 = '';
-var kep_meret2 = '';
-//var slider = new Object;
-var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep', 'kep', 'hatter'];
+var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep', 'hatter'];
 
 function onDeviceReady() {
 	
@@ -340,7 +335,7 @@ function onDeviceReady() {
 	});
 
 	$(".kep-nav-megosztas").on( "click", function() {
-		var kep_link = 'http://www.partyzoo.hu/kep/'+kep_link+'/'+kep_szam;
+		var klink = 'http://www.partyzoo.hu/kep/'+kep_link+'/'+kep_szam;
 		window.plugins.socialsharing.share(null, null, null, kep_link);
 	});
 
@@ -351,12 +346,11 @@ function onDeviceReady() {
 	});
 	
 	$(".hatter-nav-megosztas").on( "click", function() {
-		var kep_link = 'http://www.partyzoo.hu/hatterkep/'+kep_szam+'.jpg';
-		window.plugins.socialsharing.share(null, null, kep_link, null);
+		var klink = 'http://www.partyzoo.hu/hatterkep/'+kep_szam+'.jpg';
+		window.plugins.socialsharing.share(null, null, klink, null);
 	});
 	
-
-		
+	
 	//gombok méretének beállítása a képernyő méretéhez igazítva
 	PagePosition();
 
@@ -397,10 +391,18 @@ function SliderInit(slid) {
 
   window.slider = $(".royalSlider").data('royalSlider');
   
+  slider.ev.on('rsAfterSlideChange', function(event) {
+	var data = slider.currSlide.image;
+    var start = data.lastIndexOf('/')+1;
+    var end = data.lastIndexOf('.');
+    if (end == -1) end = data.length();
+    kep_szam = data.substring(start , end);
+  });  
+  
   slider.ev.on('rsSlideClick', function(event, originalEvent) {
     $('#proba').html('<img src="'+ slider.currSlide.image +'" />');
 	if (slider.currSlide.iW > slider.currSlide.iH) {
-		window.plugins.orientationchanger.lockOrientation('landscape');
+//		window.plugins.orientationchanger.lockOrientation('landscape');
 	} 
     currentId = slider.currSlideId;
 	document.removeEventListener("backbutton", BackToIndex);	
@@ -413,7 +415,7 @@ function SliderInit(slid) {
 }
 
 function NagyKepKlikk() {
-    window.plugins.orientationchanger.lockOrientation('portrait');
+//    window.plugins.orientationchanger.lockOrientation('portrait');
     $("#proba").hide();
 	$("#wrap").show();
     $("#partyzoo").show();
