@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<title>partyzoo_hu</title>
+<link rel="stylesheet" href="partyzoo.css" />
+<link rel="stylesheet" href="scripts/royalslider.css">
+<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.royalslider.min.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+
+<style>
+<<<<<<< HEAD
+<<<<<<< HEAD
+.royalSlider {
+	width: 500px;
+	height: 400px;
+	position: relative;
+	direction: ltr;
+}
+
+#kep-content {
+	display:none;
+	position:absolute;
+	left:0;
+	top:5.5em;
+	z-index:9000;
+}
+
+#partyzoo {
+	margin:0 auto;
+	padding:0;
+	margin-top:0.75em;
+=======
+=======
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+
+body {
+    overflow:hidden;
+}
+#partyzoo {
+	margin-top:0.5em;
+	margin:0 auto;
+<<<<<<< HEAD
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+}
+.royalSlider img {
+	border:1px solid #000000;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+</style>
+</head>
+
+<body>
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:visible;"> </div>
+
+    <div id="kep-content">
+      <div id="partyzoo" class="royalSlider">
+      </div>
+    </div>
+=======
+<div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:hidden;"> </div>
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+<div id="proba" style="display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color:#000; z-index:10000; overflow:hidden;"> </div>
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+
+<div id="wrap">
+
+  <div id="head">
+    <div class="styled-select">
+      <select name="city" id="city">
+        <option value="4" />Balaton</option>
+        <option value="6" />Budapest</option>
+        <option value="16" />Debrecen</option>
+        <option value="7" />Győr</option>
+        <option value="8" />Kaposvár</option>
+        <option value="2" />Kecskemét</option>
+        <option value="14" />Mosonmagyaróvár</option>
+        <option value="1" />Pécs</option>
+        <option value="9" />Sopron</option>
+        <option value="13" />Szeged</option>
+        <option value="19" />Székesfehérvár</option>
+        <option value="11" />Szekszárd</option>
+        <option value="15" />Veszprém</option>
+        <option value="5" />Zalaegerszeg</option>
+        <option value="0" />Minden város</option>
+      </select>
+    </div>
+    <div class="search-form">
+      KERESÉS
+      <input type="text" name="search" id="search">
+    </div>
+  </div>
+
+  <div id="loader">
+  </div>
+
+  <div id="index">
+    <a href="javascript:Link('kepriport');">KÉPRIPORT</a>
+    <a href="javascript:Link('program');">PROGRAM</a>
+    <a href="javascript:Link('magazin');">MAGAZIN</a>
+    <a href="javascript:Link('hir');">HÍR</a>
+    <a href="javascript:Link('club');">CLUB</a>
+    <a href="javascript:Link('hatterkep');">HÁTTÉRKÉP</a>
+  </div>
+
+  <div id="kepriport">
+    <h1>KÉPRIPORT</h1>
+    <div id="kepriport-content">
+    </div>
+  </div>
+
+  <div id="program">
+    <h1>PROGRAM</h1>
+    <div id="program-content">
+    </div>
+  </div>
+
+  <div id="magazin">
+    <h1>MAGAZIN</h1>
+    <div id="magazin-content">
+    </div>
+  </div>
+
+  <div id="club">
+    <h1>CLUB</h1>
+    <div id="club-content">
+    </div>
+  </div>
+  
+  <div id="hir">
+    <h1>HÍR</h1>
+    <div id="hir-content">
+    </div>
+  </div>
+
+  <div id="hatterkep">
+    <h1>HÁTTÉRKÉP</h1>
+    <div id="hatterkep-content">
+    </div>
+  </div>
+  
+  <div id="kep">
+    <div id="kep-nav-wrap">
+      <div id="kep-nav"></div>
+    </div>
+<<<<<<< HEAD
+=======
+    <div id="kep-content">
+      <div id="partyzoo" class="royalSlider">
+      </div>
+    </div>
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+  </div>
+
+  <div id="hatter">
+    <div id="hatter-nav-wrap">
+      <div id="hatter-nav"></div>
+    </div>
+  </div>
+
+  <div id="banner">
+  </div>  
+
+</div>
+<script type="text/javascript">
+   
+function alertDismissed() { navigator.app.exitApp(); }
+
+function doNothing() { }
+
+function Uzenet(message) {
+	navigator.notification.beep(1);
+	navigator.notification.alert(message, function() {}, 'Partyzoo', 'ok');
+}
+
+function showAlert() {
+	navigator.notification.beep(1);
+	navigator.notification.alert('Internet kapcsolat szükséges!', alertDismissed, 'Partyzoo', 'Kilépés');
+}
+
+function PagePosition() {
+	page_width = $(window).width();
+	var link_height = page_width/6;
+	var head_height = link_height*1.8;
+	var form_height = page_width/12;
+	var form_width = page_width/2;
+	var link_margin = (link_height/10)/1;
+	var link_fontsize = link_height/2.5;
+	$('#head').css('height', head_height+'px');
+	$('body').css('font-size', link_fontsize+'px');	
+	$('#index a, h1, .rimg-row').css('margin-top', link_margin+'px');
+	$('#index a, h1, .rimg-row').css('margin-bottom', link_margin+'px');
+	$('#index img').css('margin-top', link_margin*2+'px');
+	$('#index img').css('margin-bottom', link_margin*2+'px');
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	$('#partyzoo').css('width', page_width*0.95+'px');
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+	$('#partyzoo').css('width', page_width*0.95+'px');
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+}
+
+function Link(page,id,from) {
+	document.addEventListener("backbutton", BackToIndex, false);
+	$(window).unbind('scroll');
+	$('html, body').animate({ scrollTop: 0 }, 0);
+	
+	if (typeof from == 'undefined') { from = 0; }
+	if (page=='kepriport' && id>0) {
+		if (from==0) album_from = previous_from;
+	} else {
+		if (previous_from!=0 && current_id>0) { 
+			if (page=='kepriport') {
+				from = album_from;
+			} else {
+				from = previous_from; 
+			}
+		}
+	}
+	$('#'+current_page).fadeOut(200, function() {
+		if (page=='index') {
+			$('#'+page).fadeIn(200);
+		} else {
+			if (id>0) { page_link = '_' + page; } else { page_link = ''; }
+			$('#loader').show();
+			$.ajax({
+			  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
+			  data: { func: page, id: id, oldal: city, from: from, str_search: encodeURIComponent(str_search), test: 'igen' },
+			  dataType: 'html',
+			  success: function(data) {
+				$('#loader').hide();
+				if (page=='kep') {
+<<<<<<< HEAD
+<<<<<<< HEAD
+//					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+					kep_adatok = data.split("+");
+					$("#kep-content").html(kep_adatok[0]);
+					SliderInit(parseInt(kep_adatok[1]));
+					$("#kep-content").show();					
+//					$("html, body").animate({ scrollTop: 100 }, 1000);
+				} else if (page=='hatter') {
+//					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+//					kep_adatok = data.split("+");
+//					$("#"+page+"-content").html(kep_adatok[0]);
+					$("#kep-content").html(data);
+					SliderInit(parseInt(kep_adatok[1]));
+					$("#kep-content").show();					
+//					$("html, body").animate({ scrollTop: 100 }, 1000);
+=======
+=======
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+//					kep_adatok = data.split("+");
+					$("#"+page+"-content").html(data);
+					SliderInit();
+					$("html, body").animate({ scrollTop: 100 }, 1000);
+				} else if (page=='hatter') {
+					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+					kep_adatok = data.split("+");
+					$("#"+page+"-content").html(kep_adatok[0]);
+					$("html, body").animate({ scrollTop: 100 }, 1000);
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+				} else {
+					$("#"+page+"-content").html(data);
+				}
+				$('#'+page).fadeIn(200);
+				divek.forEach(function(entry) {
+					if (entry!=page) {
+						$("#"+entry+"-content").empty(); 
+					}
+				});
+
+			  }
+			});
+		}
+		current_page = page;
+		previous_id = current_id;
+		if (from!=0) { previous_from = from; }
+		if (id>0) {	current_id = id; } else { current_id = 0; }
+	});
+}
+
+function City() {
+    city = $("#city").val();
+	window.localStorage.setItem("city", city);
+	Banner();
+	if (current_page=='program' || current_page=='kepriport' || current_page=='club') {
+		Link(current_page);
+	}
+}
+
+function Search() {
+    str_search = $("#search").val();
+	if (current_page!='index' || current_page!='kep') {
+		Link(current_page);
+	}
+}
+
+function endless_scroll(funk,id,oldal,str_search,darab) {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+		var loader_name = '#' + funk + '-loader';
+		var content_name = '#' + funk + '-content';
+		$(window).unbind('scroll');
+		$(loader_name).show();
+		ujfrom[funk] = ujfrom[funk] + darab;
+		if (id>0) { page_link = '_' + funk; } else { page_link = ''; }
+		$.ajax({
+		  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
+		  data: { func: funk, id: id, oldal: oldal, from: ujfrom[funk], str_search: encodeURIComponent(str_search) },
+		  dataType: 'html',
+		  success: function(data) {
+			$(loader_name).hide();
+			$(content_name).append(data);
+            $(window).scroll(function() { endless_scroll(funk,id,oldal,str_search,darab) } );
+		  }
+		});
+	}
+}
+
+function Banner() {
+	if ($('#banner').css('bottom') == '0px') {
+		  $('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+	}
+    //banner beolvasása
+	$.ajax({
+	  url: 'http://www.partyzoo.hu/android/ajax_banner.php',
+	  data: { oldal: city },
+	  dataType: 'html',
+	  success: function(data) {
+		  if (data!='') {
+			  $("#banner").html(data);
+			  $("#banner").animate({bottom:'0px',opacity:1.0},750);
+		  }
+	  }
+	});
+}
+
+//jQuery(document).ready(onDeviceReady);
+document.addEventListener("deviceready", onDeviceReady, false);
+
+var current_page = 'index';
+var current_id = 0;
+var currentId = 0;
+var previous_id = 0;
+var previous_from = 0;
+var album_from = 0;
+var city = 0;
+var str_search = '';
+var page_width = 0;
+var kep_id = 0;
+var kep_max = 0;
+var ujfrom = new Array();
+var slider = new Object;
+var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep', 'kep', 'hatter'];
+
+function onDeviceReady() {
+	
+	//ablak átméretezése esetén is pozícióba állítás
+	$(window).resize(PagePosition);
+
+	//város beállítása és tárolása
+	$("#city").change(City);
+	if (typeof window.localStorage.getItem("city") != 'string') {
+	    window.localStorage.setItem("city", city);
+	} else {
+	    city = window.localStorage.getItem("city");
+	}
+	$("#city").val(city);
+	
+	$("#search").change(Search);
+	$("#search").val(str_search);
+
+	//gombok méretének beállítása a képernyő méretéhez igazítva
+	PagePosition();
+
+	navigator.splashscreen.hide();
+	
+	//vissza gomb kezelése
+	document.addEventListener("backbutton", BackToIndex, false);
+	
+	//internet kapcsolat figyelése
+	if (navigator.network.connection.type == Connection.NONE){
+		showAlert();
+	} else {
+		document.addEventListener("offline", showAlert, false);
+	}
+	
+	Banner();
+	
+	$('#index').show();
+}
+
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+function SliderInit(slid) {
+
+  $('.royalSlider').css('width', page_width +'px');
+=======
+function SliderInit() {
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+function SliderInit() {
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+
+  $(".royalSlider").royalSlider({
+			numImagesToPreload: 4,
+			navigateByClick: false,
+			imageScaleMode: 'fit',
+<<<<<<< HEAD
+<<<<<<< HEAD
+			imageScalePadding: 5,
+			controlsInside: false,
+			allowCSS3: false,
+			startSlideId: slid,
+			autoScaleSlider: true,
+			autoScaleSliderWidth: page_width,
+            keyboardNavEnabled: true
+        });
+
+  slider = $(".royalSlider").data('royalSlider');
+  
+  slider.ev.on('rsSlideClick', function(event, originalEvent) {
+    $('#proba').html('<img src="'+ slider.currSlide.image +'" />');
+	if (slider.currSlide.iW > slider.currSlide.iH) {
+		window.plugins.orientationchanger.lockOrientation('landscape');
+	} 
+    currentId = slider.currSlideId;
+
+    $("#proba").toggle();
+    $("#partyzoo").toggle();
+	$("#wrap").toggle();
+  });
+	
+  $("#proba").click(function() {
+    window.plugins.orientationchanger.lockOrientation('portrait');
+	$("#wrap").toggle();
+    $("#partyzoo").toggle();
+=======
+			imageScalePadding: 0,
+            keyboardNavEnabled: true
+        });
+
+  var slider = $(".royalSlider").data('royalSlider');
+	
+=======
+			imageScalePadding: 0,
+            keyboardNavEnabled: true
+        });
+
+  var slider = $(".royalSlider").data('royalSlider');
+	
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+  slider.ev.on('rsSlideClick', function(event, originalEvent) {
+    $('#proba').html('<img src="'+ slider.currSlide.image +'" />');
+    currentId = slider.currSlideId;
+    $("#proba").toggle();
+    $("#partyzoo").toggle();
+  });
+	
+  $("#proba").click(function() {
+    $("#partyzoo").toggle();		
+<<<<<<< HEAD
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+=======
+>>>>>>> 6384822a91b09abf1fb4c38e8acf3bb65e89ef00
+    slider.goTo(currentId);
+    $("#proba").toggle();
+  });
+}
+
+
+function BackToIndex(oldal) {
+	document.removeEventListener("backbutton", BackToIndex);
+	//vissza gombra kattintáskor az előző oldalra, kivéve, ha nyitóoldal
+	if (current_page == 'index') {
+		navigator.app.exitApp();
+	} else {
+		if (current_id!=0) {
+			if (current_page=='kep') {
+//				$("html, body").animate({ scrollTop: 0 }, 500);
+				$("#kep-content").hide();
+				slider.destroy();
+//				Banner();
+				Link('kepriport',previous_id);
+			} else if (current_page=='hatter') {
+//				$("html, body").animate({ scrollTop: 0 }, 500);
+//				Banner();
+				$("#kep-content").hide();
+				slider.destroy();
+				Link('hatterkep',previous_id);
+			} else {
+				Link(current_page);
+			}
+		} else {
+			Link('index');
+		}
+	}
+	document.addEventListener("backbutton", BackToIndex, false);	
+}
+
+function FajlLetoltes(fajlnev,url) {
+	var localDir = "Partyzoo";
+	var remoteFile = url;
+	var localFileName = localDir + "/" + fajlnev;
+	
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+		fileSystem.root.getDirectory(localDir, {create: true, exclusive: false}, function() { 
+        fileSystem.root.getFile(localFileName, {create: true, exclusive: false}, function(fileEntry) {
+            var localPath = fileEntry.toURL();
+            var ft = new FileTransfer();
+            ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); }, function(error) { alert(error.code); }, true);
+        }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
+    }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
+  }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
+}
+
+
+  
+</script>
+</body>
+</html>
