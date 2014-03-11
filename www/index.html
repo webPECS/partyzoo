@@ -329,13 +329,13 @@ function onDeviceReady() {
 	$("#search").val(str_search);
 	
 	$(".kep-nav-mentes").on( "click", function() {
-		var kep_fajlnev = 'kepriport_'.kep_konyvtar+'_'+kep_szam+'.jpg';
-		var kep_url = 'http://www.partyzoo.hu/galeriak/'+kep_konyvtar+'/'+kep_szam+'.jpg';		
+		var kep_fajlnev = 'kepriport_' + kep_konyvtar + '_' + kep_szam + '.jpg';
+		var kep_url = 'http://www.partyzoo.hu/galeriak/' + kep_konyvtar + '/' + kep_szam + '.jpg';
 		FajlLetoltes(kep_fajlnev,kep_url);
 	});
 
 	$(".kep-nav-megosztas").on( "click", function() {
-		var klink = 'http://www.partyzoo.hu/kep/'+kep_link+'/'+kep_szam;
+		var klink = 'http://www.partyzoo.hu/kep/' + kep_link + '/' + kep_szam;
 		window.plugins.socialsharing.share(null, null, null, klink);
 	});
 
@@ -463,10 +463,10 @@ function FajlLetoltes(fajlnev,url) {
             var localPath = fileEntry.toURL();
             var ft = new FileTransfer();
             ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); 
-			}, function(error) { Uzenet('Hiba történt a fájl mentése közben.'); }, true);
-        }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
-    }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
-  }, function() { Uzenet('Hiba történt a fájl mentése közben.'); });
+			}, function(error) { Uzenet('Hiba történt a fájl mentése közben. - 1'.error.code); }, true);
+        }, function() { Uzenet('Hiba történt a fájl mentése közben. - 2'.error.code); });
+    }, function() { Uzenet('Hiba történt a fájl mentése közben.3'.error.code); });
+  }, function() { Uzenet('Hiba történt a fájl mentése közben.4'.error.code); });
 }
   
 </script>
