@@ -141,6 +141,12 @@
     <div id="hatterkep-content">
     </div>
   </div>
+
+  <div id="magazinkep">
+  </div>
+
+  <div id="clubkep">
+  </div>
   
   <div id="kep">
     <div id="kep-nav-wrap">
@@ -235,6 +241,7 @@ function Link(page,id,from,vissza) {
 					$("#kep-content").show();
 									
 				} else if (page=='hatter') {
+					$('#banner').animate({bottom:'-100%',opacity:0.1},500);
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
 					window.kep_meret1 = kep_adatok[2];
@@ -242,8 +249,17 @@ function Link(page,id,from,vissza) {
 					window.kep_szam = parseInt(kep_adatok[1],10);
 					SliderInit();
 					$("#kep-content").show();
+
+				} else if (page=='magazinkep' || page=='clubkep') {
+					$('#banner').animate({bottom:'-100%',opacity:0.1},500);
+					kep_adatok = data.split("+");
+					$("#kep-content").html(kep_adatok[0]);
+					window.kep_szam = parseInt(kep_adatok[1],10);
+					SliderInit(kep_szam-1);
+					$("#kep-content").show();
 										
 				} else {
+
 					$("#"+page+"-content").html(data);
 				}
 				$('#'+page).fadeIn(200);
@@ -340,7 +356,7 @@ var page_height = 0;
 var kep_id = 0;
 var kep_max = 0;
 var ujfrom = new Array();
-var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep', 'hatter'];
+var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
 
 function onDeviceReady() {
 	
@@ -471,8 +487,20 @@ function BackToIndex(oldal) {
 			} else if (current_page=='hatter') {
 				$("#kep-content").hide();
 				slider.destroy();
+				Banner();
 				Link('hatterkep',previous_id);
+			} else if (current_page=='magazinkep') {
+				$("#kep-content").hide();
+				slider.destroy();
+				Banner();
+				Link('magazin',previous_id);
+			} else if (current_page=='clubkep') {
+				$("#kep-content").hide();
+				slider.destroy();
+				Banner();
+				Link('club',previous_id);
 			} else {
+
 				Link(current_page);
 			}
 		} else {
