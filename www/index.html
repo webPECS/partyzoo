@@ -193,7 +193,7 @@ function PagePosition() {
 	$('#index img').css('margin-bottom', link_margin*2+'px');
 }
 
-function Link(page,id,from) {
+function Link(page,id,from,vissza) {
 	document.addEventListener("backbutton", BackToIndex, false);
 	$(window).unbind('scroll');
 	$('html, body').animate({ scrollTop: 0 }, 0);
@@ -219,27 +219,27 @@ function Link(page,id,from) {
 			$('#loader').show();
 			$.ajax({
 			  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
-			  data: { func: page, id: id, oldal: city, from: from, str_search: encodeURIComponent(str_search), test: 'igen' },
+			  data: { func: page, id: id, oldal: city, from: from, vissza: vissza, str_search: encodeURIComponent(str_search), test: 'igen' },
 			  dataType: 'html',
 			  success: function(data) {
 				$('#loader').hide();
 				
 				if (page=='kep') {
-					$('#banner').animate({bottom:'-100%',opacity:0.1},1000);
+					$('#banner').animate({bottom:'-100%',opacity:0.1},500);
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
 					window.kep_link = kep_adatok[2];
 					window.kep_konyvtar = kep_adatok[3];
-					window.kep_szam = kep_adatok[1];
-					SliderInit(parseInt(kep_szam)-1);
-					$("#kep-content").show();	
+					window.kep_szam = parseInt(kep_adatok[1],10);
+					SliderInit(kep_szam-1);
+					$("#kep-content").show();
 									
 				} else if (page=='hatter') {
 					kep_adatok = data.split("+");
 					$("#kep-content").html(kep_adatok[0]);
 					window.kep_meret1 = kep_adatok[2];
 					window.kep_meret2 = kep_adatok[3];
-					window.kep_szam = kep_adatok[1];
+					window.kep_szam = parseInt(kep_adatok[1],10);
 					SliderInit();
 					$("#kep-content").show();
 										
@@ -247,17 +247,24 @@ function Link(page,id,from) {
 					$("#"+page+"-content").html(data);
 				}
 				$('#'+page).fadeIn(200);
+
 				divek.forEach(function(entry) {
 					if (entry!=page) {
 						$("#"+entry+"-content").empty(); 
 					}
 				});
+				
+				if (page=='kepriport' && vissza=='igen') {
+					var pixel = (page_width/4.5) * (kep_szam/2);
+					$('html, body').animate({scrollTop: '+='+pixel+'px'}, 500);
+				}
+
 			  }
 			});
 		}
 		current_page = page;
 		previous_id = current_id;
-		if (from!=0) { previous_from = from; }
+//		if (from!=0) { previous_from = from; }
 		if (id>0) {	current_id = id; } else { current_id = 0; }
 	});
 }
@@ -398,8 +405,6 @@ function onDeviceReady() {
 
 function SliderInit(slid) {
 	
-  alert(slid);
-
   $('.royalSlider').css('width', page_width +'px');
 
   $(".royalSlider").royalSlider({
@@ -423,7 +428,7 @@ function SliderInit(slid) {
     var start = data.lastIndexOf('/')+1;
     var end = data.lastIndexOf('.');
     if (end == -1) end = data.length();
-    kep_szam = data.substring(start , end);
+    kep_szam = parseInt(data.substring(start , end),10);
   });  
   
   slider.ev.on('rsSlideClick', function(event, originalEvent) {
@@ -462,7 +467,7 @@ function BackToIndex(oldal) {
 				$("#kep-content").hide();
 				slider.destroy();
 				Banner();
-				Link('kepriport',previous_id);
+				Link('kepriport',previous_id,ujfrom['kepriport'],'igen');
 			} else if (current_page=='hatter') {
 				$("#kep-content").hide();
 				slider.destroy();
