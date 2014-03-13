@@ -397,6 +397,8 @@ function onDeviceReady() {
 
 
 function SliderInit(slid) {
+	
+  alert(slid);
 
   $('.royalSlider').css('width', page_width +'px');
 
@@ -406,7 +408,7 @@ function SliderInit(slid) {
 			imageScaleMode: 'fit',
 			imageScalePadding: 5,
 			controlsInside: false,
-			allowCSS3: false,
+			allowCSS3: true,
 			startSlideId: slid,
 			autoScaleSlider: true,
 			autoScaleSliderWidth: page_width,
