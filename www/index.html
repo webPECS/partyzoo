@@ -221,7 +221,14 @@ function Link(page,id,from,vissza) {
 			$('#loader').hide();
 			$('#'+page).fadeIn(200);
 		} else {
-			if (id>0) { page_link = '_' + page; } else { page_link = ''; }
+			if (id>0 && page!='hatterkep') { page_link = '_' + page; } else { page_link = ''; }
+			if (page=='hatterkep') { 
+				if (typeof id == 'undefined') {
+					id = hatter_kategoria;
+				} else { 
+				    if (id!=999 && id>0) { hatter_kategoria = id; } 
+				} 
+			}
 			$('#loader').show();
 			$.ajax({
 			  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
@@ -296,7 +303,7 @@ function City() {
 
 function Search() {
     str_search = $("#search").val();
-	if (current_page!='index' || current_page!='kep') {
+	if (current_page!='index' || current_page!='kep' || current_page!='hatter' || current_page!='clubkep' || current_page!='magazinkep') {
 		Link(current_page);
 	}
 }
@@ -351,6 +358,7 @@ var previous_from = 0;
 var album_from = 0;
 var city = 0;
 var str_search = '';
+var hatter_kategoria = 999;
 var page_width = 0;
 var page_height = 0;
 var kep_id = 0;
@@ -478,7 +486,7 @@ function BackToIndex(oldal) {
 	if (current_page == 'index') {
 		navigator.app.exitApp();
 	} else {
-		if (current_id!=0) {
+		if (current_id!=0 && current_page!='hatterkep') {
 			if (current_page=='kep') {
 				$("#kep-content").hide();
 				slider.destroy();
@@ -500,7 +508,6 @@ function BackToIndex(oldal) {
 				Banner();
 				Link('club',previous_id);
 			} else {
-
 				Link(current_page);
 			}
 		} else {
