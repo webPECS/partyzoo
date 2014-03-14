@@ -315,7 +315,7 @@ function endless_scroll(funk,id,oldal,str_search,darab) {
 		$(window).unbind('scroll');
 		$(loader_name).show();
 		ujfrom[funk] = ujfrom[funk] + darab;
-		if (id>0) { page_link = '_' + funk; } else { page_link = ''; }
+		if (id>0 && funk!='hatterkep') { page_link = '_' + funk; } else { page_link = ''; }
 		$.ajax({
 		  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
 		  data: { func: funk, id: id, oldal: oldal, from: ujfrom[funk], str_search: encodeURIComponent(str_search) },
