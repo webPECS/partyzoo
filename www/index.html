@@ -199,7 +199,7 @@ function PagePosition() {
 	$('#index img').css('margin-bottom', link_margin*2+'px');
 }
 
-function Link(page,id,from,vissza) {
+function Link(page,id,from,vissza,kategoria) {
 	document.addEventListener("backbutton", BackToIndex, false);
 	$(window).unbind('scroll');
 	$('html, body').animate({ scrollTop: 0 }, 0);
@@ -221,18 +221,24 @@ function Link(page,id,from,vissza) {
 			$('#loader').hide();
 			$('#'+page).fadeIn(200);
 		} else {
-			if (id>0 && page!='hatterkep') { page_link = '_' + page; } else { page_link = ''; }
+			if (id>0) { page_link = '_' + page; } else { page_link = ''; }
 			if (page=='hatterkep') { 
-				if (typeof id == 'undefined') {
-					id = hatter_kategoria;
+				if (typeof kategoria == 'undefined') {
+					kategoria = hatter_kategoria;
 				} else { 
-				    if (id!=999 && id>0) { hatter_kategoria = id; } 
+				    if (kategoria!=999 && kategoria>0) { hatter_kategoria = kategoria; }
+				} 
+			} else if (page=='magazin') {
+				if (typeof kategoria == 'undefined') {
+					kategoria = magazin_kategoria;
+				} else { 
+				    if (kategoria!=999 && kategoria>0) { magazin_kategoria = kategoria; } 
 				} 
 			}
 			$('#loader').show();
 			$.ajax({
 			  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
-			  data: { func: page, id: id, oldal: city, from: from, vissza: vissza, str_search: encodeURIComponent(str_search), test: 'igen' },
+			  data: { func: page, id: id, oldal: city, from: from, vissza: vissza, kategoria: kategoria, str_search: encodeURIComponent(str_search), test: 'igen' },
 			  dataType: 'html',
 			  success: function(data) {
 				$('#loader').hide();
@@ -308,17 +314,17 @@ function Search() {
 	}
 }
 
-function endless_scroll(funk,id,oldal,str_search,darab) {
+function endless_scroll(funk,id,oldal,str_search,darab,kategoria) {
     if($(window).scrollTop() > $(document).height() - $(window).height() - 100) {
 		var loader_name = '#' + funk + '-loader';
 		var content_name = '#' + funk + '-content';
 		$(window).unbind('scroll');
 		$(loader_name).show();
 		ujfrom[funk] = ujfrom[funk] + darab;
-		if (id>0 && funk!='hatterkep') { page_link = '_' + funk; } else { page_link = ''; }
+		if (id>0) { page_link = '_' + funk; } else { page_link = ''; }
 		$.ajax({
 		  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
-		  data: { func: funk, id: id, oldal: oldal, from: ujfrom[funk], str_search: encodeURIComponent(str_search) },
+		  data: { func: funk, id: id, oldal: oldal, kategoria: kategoria, from: ujfrom[funk], str_search: encodeURIComponent(str_search) },
 		  dataType: 'html',
 		  success: function(data) {
 			$(loader_name).hide();
@@ -359,6 +365,7 @@ var album_from = 0;
 var city = 0;
 var str_search = '';
 var hatter_kategoria = 999;
+var magazin_kategoria = 999;
 var page_width = 0;
 var page_height = 0;
 var kep_id = 0;
@@ -383,9 +390,14 @@ function onDeviceReady() {
 	$("#search").change(Search);
 	$("#search").val(str_search);
 	
+	function zeroPad(num, places) {
+		var zero = places - num.toString().length + 1;
+		return Array(+(zero > 0 && zero)).join("0") + num;
+	}
+
 	$(".kep-nav-mentes").on( "click", function() {
 		var kep_fajlnev = 'kepriport_' + kep_konyvtar + '_' + kep_szam + '.jpg';
-		var kep_url = 'http://www.partyzoo.hu/galeriak/' + kep_konyvtar + '/' + kep_szam + '.jpg';
+		var kep_url = 'http://www.partyzoo.hu/galeriak/' + kep_konyvtar + '/' + zeroPad(kep_szam,3) + '.jpg';
 		FajlLetoltes(kep_fajlnev,kep_url);
 	});
 
@@ -486,7 +498,7 @@ function BackToIndex(oldal) {
 	if (current_page == 'index') {
 		navigator.app.exitApp();
 	} else {
-		if (current_id!=0 && current_page!='hatterkep') {
+		if (current_id!=0) {
 			if (current_page=='kep') {
 				$("#kep-content").hide();
 				slider.destroy();
@@ -532,10 +544,10 @@ function FajlLetoltes(fajlnev,url) {
 //             }
 							
             var ft = new FileTransfer();
-            ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); }, function(error) { Uzenet('Hiba történt a fájl mentése közben: 1'); }, true);
-        }, function() { Uzenet('Hiba történt a fájl mentése közben: 2'); });
-    }, function() { Uzenet('Hiba történt a fájl mentése közben: 3'); });
-  }, function() { Uzenet('Hiba történt a fájl mentése közben: 4'); });
+            ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); }, function(error) { Uzenet('Hiba történt a fájl mentése közben: 1'+remoteFile+'-'+localFileName); }, true);
+        }, function() { Uzenet('Hiba történt a fájl mentése közben: 2'+remoteFile+'-'+localFileName); });
+    }, function() { Uzenet('Hiba történt a fájl mentése közben: 3'+remoteFile+'-'+localFileName); });
+  }, function() { Uzenet('Hiba történt a fájl mentése közben: 4'+remoteFile+'-'+localFileName); });
 }
   
 </script>
