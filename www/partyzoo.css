@@ -132,7 +132,7 @@ div.doboz {
 .edit  { border-bottom:1px solid #999; clear:both; }
 .torzs { padding:1em 0 0.5em 0; font-size:0.5em; clear:both; }	
 .torzs p { margin:1.2em 0 1em 0; }
-.torzs a, .torzs p a { color:#FF8C00; }	
+.torzs a, .torzs p a, div.doboz table td a { color:#FF8C00; }	
 #program .torzs img { float:none; border:1px solid black; margin:1em 0 1em 0; width:100%; }
 .datum { float: left; width:200px; text-align:left; color:#333; font-size:0.35em; margin:5px 0px 5px 0px; }
 .nev { float: right; width:200px; text-align:right; color:#999; font-size:0.35em; margin:5px 0px 5px 0px; }

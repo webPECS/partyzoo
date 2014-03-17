@@ -203,19 +203,9 @@ function Link(page,id,from,vissza,kategoria) {
 	document.addEventListener("backbutton", BackToIndex, false);
 	$(window).unbind('scroll');
 	$('html, body').animate({ scrollTop: 0 }, 0);
-	
+
 	if (typeof from == 'undefined') { from = 0; }
-	if (page=='kepriport' && id>0) {
-		if (from==0) album_from = previous_from;
-	} else {
-		if (previous_from!=0 && current_id>0) { 
-			if (page=='kepriport') {
-				from = album_from;
-			} else {
-				from = previous_from; 
-			}
-		}
-	}
+
 	$('#'+current_page).fadeOut(200, function() {
 		if (page=='index') {
 			$('#loader').hide();
@@ -238,7 +228,7 @@ function Link(page,id,from,vissza,kategoria) {
 			$('#loader').show();
 			$.ajax({
 			  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
-			  data: { func: page, id: id, oldal: city, from: from, vissza: vissza, kategoria: kategoria, str_search: encodeURIComponent(str_search) },
+			  data: { func: page, id: id, oldal: city, from: from, vissza: vissza, kategoria: kategoria, str_search: encodeURIComponent(str_search), erotika: erotika },
 			  dataType: 'html',
 			  success: function(data) {
 				$('#loader').hide();
@@ -284,12 +274,11 @@ function Link(page,id,from,vissza,kategoria) {
 				});
 				
 				if (vissza=='igen') {
-					if (page=='kepriport') {
+					if (page=='kepriport' && id>0) {
 						var pixel = (page_width/4.5) * (kep_szam/2);
 						$('html, body').animate({scrollTop: '+='+pixel+'px'}, 500);
 					} else {
 						if (page=='magazin') vissza_szam++;
-						alert(vissza_szam);
 						var pixel = (page_width/5) * vissza_szam;
 						$('html, body').animate({scrollTop: '+='+pixel+'px'}, 500);
 					}
@@ -300,7 +289,7 @@ function Link(page,id,from,vissza,kategoria) {
 		}
 		current_page = page;
 		previous_id = current_id;
-//		if (from!=0) { previous_from = from; }
+		if (ujfrom[page]!=0) { previous_from[page] = ujfrom[page]; }
 		if (id>0) {	current_id = id; } else { current_id = 0; }
 	});
 }
@@ -331,7 +320,7 @@ function endless_scroll(funk,id,oldal,str_search,darab,kategoria) {
 		if (id>0) { page_link = '_' + funk; } else { page_link = ''; }
 		$.ajax({
 		  url: 'http://www.partyzoo.hu/android/ajax_13' + page_link + '.php',
-		  data: { func: funk, id: id, oldal: oldal, kategoria: kategoria, from: ujfrom[funk], str_search: encodeURIComponent(str_search) },
+		  data: { func: funk, id: id, oldal: oldal, kategoria: kategoria, from: ujfrom[funk], str_search: encodeURIComponent(str_search), erotika: erotika },
 		  dataType: 'html',
 		  success: function(data) {
 			$(loader_name).hide();
@@ -360,15 +349,13 @@ function Banner() {
 	});
 }
 
-//jQuery(document).ready(onDeviceReady);
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var current_page = 'index';
 var current_id = 0;
 var currentId = 0;
 var previous_id = 0;
-var previous_from = 0;
-var album_from = 0;
+var previous_from = new Array();
 var city = 0;
 var str_search = '';
 var hatter_kategoria = 998;
@@ -377,6 +364,7 @@ var page_width = 0;
 var page_height = 0;
 var vissza_szam = 0;
 var ujfrom = new Array();
+var erotika = 0;
 var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
 
 function onDeviceReady() {
@@ -505,8 +493,10 @@ function BackToIndex(oldal) {
 		navigator.app.exitApp();
 	} else {
 		if (current_id!=0) {
-			if (current_page=='club' || current_page=='magazin' || current_page=='program' || current_page=='hir') {
+			if (current_page=='club' || current_page=='magazin' || current_page=='program') {
 				Link(current_page,0,ujfrom[current_page],'igen');
+			} else if (current_page=='kepriport') {
+				Link(current_page,0,previous_from[current_page],'igen');
 			} else if (current_page=='kep') {
 				$("#kep-content").hide();
 				slider.destroy();
