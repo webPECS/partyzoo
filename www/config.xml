@@ -46,6 +46,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
     <!-- Third party plugins -->
+    <gap:plugin name="nl.x-services.plugins.calendar" />
 
 
     <!-- Define app icon for each platform. -->
