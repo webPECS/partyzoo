@@ -440,8 +440,8 @@ function onDeviceReady() {
 	Banner();
 	
 
-	
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);	
+	var options =  { maximumAge: 3000, timeout: 3000, enableHighAccuracy: true };
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);	
 	
 	
 	$('#index').show();
