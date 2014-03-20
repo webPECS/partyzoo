@@ -373,8 +373,6 @@ var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
 		if (funkcio=='stop') {
 			navigator.geolocation.clearWatch(watchID);
 		} else {
-	        var options = { timeout: 10000, maximumAge: 60000, enableHighAccuracy: true };
-			navigator.geolocation.getCurrentPosition(onSuccess, onError, options);			
 //    	    watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 		}
 	}
@@ -451,7 +449,9 @@ function onDeviceReady() {
 	
 	Banner();
 	
-	GpsPozicio('start');
+    var options = { timeout: 10000, maximumAge: 60000, enableHighAccuracy: true };
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);			
+
 	
 	$('#index').show();
 }
