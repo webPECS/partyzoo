@@ -21,9 +21,10 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <preference name="permissions"                value="INTERNET"/>
+    <preference name="permissions"                value="ACCESS_COARSE_LOCATION"/>
+    <preference name="permissions"                value="ACCESS_FINE_LOCATION"/>
+    <preference name="permissions"                value="ACCESS_LOCATION_EXTRA_COMMANDS"/>
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="3.3.0" />          <!-- all: current version of PhoneGap -->
