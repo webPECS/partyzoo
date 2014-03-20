@@ -13,7 +13,7 @@
     </description>
 
     <author href="http://www.webpecs.hu" email="info@webpecs.hu">
-        webP�CS
+        webPECS
     </author>
 
     <!--
@@ -21,7 +21,6 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="3.1.0" />          <!-- all: current version of PhoneGap -->
@@ -39,12 +38,13 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
+
 
     <!-- Third party plugins -->
     <gap:plugin name="nl.x-services.plugins.calendar" />
