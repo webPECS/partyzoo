@@ -366,17 +366,28 @@ var vissza_szam = 0;
 var ujfrom = new Array();
 var erotika = 0;
 var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
+var watchID = null;
 
-	var onSuccess = function(position) {
-    	alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n');
-	};
 
-	function onError(error) {
-    	alert('code: '    + error.code    + '\n' +
-	         'message: ' + error.message + '\n');
+    function GpsPozicio(funkcio) {
+		if (funkcio=='stop') {
+			navigator.geolocation.clearWatch(watchID);
+		} else {
+	        var options = { frequency: 3000 };
+    	    watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+		}
 	}
-	
+
+    function onSuccess(position) {
+        alert = 'Latitude: '  + position.coords.latitude + 'Longitude: ' + position.coords.longitude;
+    }
+
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }	
+
+
 function onDeviceReady() {
 	
 	//ablak átméretezése esetén is pozícióba állítás
@@ -438,12 +449,7 @@ function onDeviceReady() {
 	}
 	
 	Banner();
-	
 
-	var options =  { maximumAge: 3000, timeout: 3000, enableHighAccuracy: true };
-	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);	
-	
-	
 	$('#index').show();
 }
 
