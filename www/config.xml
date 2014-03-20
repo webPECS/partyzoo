@@ -44,6 +44,7 @@
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
 
     <!-- Third party plugins -->
     <gap:plugin name="nl.x-services.plugins.calendar" />
