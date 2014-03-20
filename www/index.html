@@ -450,7 +450,7 @@ function onDeviceReady() {
 	
 	Banner();
 	
-    var options = { timeout: 31000, maximumAge: 90000, enableHighAccuracy: false };
+    var options = { timeout: 31000, maximumAge: 90000, enableHighAccuracy: true };
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);			
 	
 	$('#index').show();
