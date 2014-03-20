@@ -373,7 +373,7 @@ var watchID = null;
 		if (funkcio=='stop') {
 			navigator.geolocation.clearWatch(watchID);
 		} else {
-	        var options = { frequency: 3000 };
+	        var options = { frequency: 3000, maximumAge: 60000, enableHighAccuracy: true };
     	    watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 		}
 	}
