@@ -367,8 +367,6 @@ var ujfrom = new Array();
 var erotika = 0;
 var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
 
-function onDeviceReady() {
-	
 	var onSuccess = function(position) {
     	alert('Latitude: '          + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n');
@@ -379,7 +377,7 @@ function onDeviceReady() {
 	         'message: ' + error.message + '\n');
 	}
 	
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);	
+function onDeviceReady() {
 	
 	//ablak átméretezése esetén is pozícióba állítás
 	$(window).resize(PagePosition);
@@ -440,6 +438,11 @@ function onDeviceReady() {
 	}
 	
 	Banner();
+	
+
+	
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);	
+	
 	
 	$('#index').show();
 }
@@ -537,6 +540,7 @@ function BackToIndex(oldal) {
 		}
 	}
 	document.addEventListener("backbutton", BackToIndex, false);
+
 }
 
 function FajlLetoltes(fajlnev,url) {
