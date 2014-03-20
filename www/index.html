@@ -378,12 +378,11 @@ var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
 	}
 
     function onSuccess(position) {
-        alert = 'Latitude: '  + position.coords.latitude + 'Longitude: ' + position.coords.longitude;
+        alert = 'siker';
     }
 
     function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+        alert('nemsiker');
     }	
 
 
@@ -449,7 +448,7 @@ function onDeviceReady() {
 	
 	Banner();
 	
-    var options = { timeout: 10000, maximumAge: 60000, enableHighAccuracy: true };
+    var options = { timeout: 3000, maximumAge: 6000, enableHighAccuracy: true };
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);			
 
 	

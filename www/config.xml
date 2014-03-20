@@ -49,6 +49,9 @@
 
 
     <!-- Third party plugins -->
+    <gap:plugin name="nl.x-services.plugins.calendar" />
+    <gap:plugin name="com.boyvanderlaak.cordova.plugin.orientationchanger" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" />
 
 
     <!-- Define app icon for each platform. -->
