@@ -165,6 +165,8 @@
 
 </div>
 <script type="text/javascript">
+
+function GoogleMapLink(e) { Link('club',e.data); }
    
 function alertDismissed() { navigator.app.exitApp(); }
 
@@ -366,18 +368,6 @@ var vissza_szam = 0;
 var ujfrom = new Array();
 var erotika = 0;
 var divek = ['kepriport', 'program', 'magazin', 'club', 'hir', 'hatterkep'];
-//var watchID = null;
-
-    function onSuccess(position) {
-        alert = 'siker';
-    }
-
-    function onError(error) {
-//        alert('nemsiker');
-		    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-    }	
-
 
 function onDeviceReady() {
 	
@@ -439,17 +429,9 @@ function onDeviceReady() {
 		document.addEventListener("offline", showAlert, false);
 	}
 	
+	window.addEventListener("message", GoogleMapLink, false);	
+
 	Banner();
-
-   if (navigator.geolocation) {
-	   alert('mostkezdem');
-		var options = { timeout: 31000, maximumAge: 90000, enableHighAccuracy: false };
-		navigator.geolocation.getCurrentPosition(onSuccess, onError, options);			
-//         navigator.geolocation.getCurrentPosition(locateSuccess, locateFail);
-    }  else { 
-            alert('Im sorry, but Geolocation is not supported in your current browser.'); 
-    } 	
-
 	
 	$('#index').show();
 }
