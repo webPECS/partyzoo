@@ -541,10 +541,6 @@ function FajlLetoltes(fajlnev,url) {
 		fileSystem.root.getDirectory(localDir, {create: true, exclusive: false}, function() { 
         fileSystem.root.getFile(localFileName, {create: true, exclusive: false}, function(fileEntry) {
           var localPath = fileEntry.toURL();
-//        var localPath = fileEntry.fullPath;
-//             if (device.platform === "Android" && localPath.indexOf("file://") === 0) {
-//                 localPath = localPath.substring(7);
-//             }
 							
             var ft = new FileTransfer();
             ft.download(remoteFile, localPath, function(entry) { Uzenet('A fájlt a Partyzoo mappába mentettem.'); }, function(error) { Uzenet('Hiba történt a fájl mentése közben: 1'+remoteFile+'-'+localFileName); }, true);

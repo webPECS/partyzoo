@@ -140,7 +140,7 @@ div.doboz {
 .nev a:hover { color:#FF8C00; }
 
 
-#index a, h1, a.arrow-right, a.arrow-left, a.back {
+#index a, h1, a.back {
 	display: inline-block;
 	width:99%;
 	height:2em;
@@ -173,16 +173,6 @@ a.back {
 	float:left;
 }
 
-a.arrow-left {
-	float:left;
-	width:24%;
-}	
-
-a.arrow-right {
-	float:left;
-	width:24%;
-}
-
 a.full {
 	width:99%;
 	margin:0;
@@ -201,14 +191,6 @@ div.paging {
 	margin-bottom:2.5em;
 	clear:both;
 }
-
-#hatterkep a.arrow-left img, #hatterkep a.arrow-right img, #magazin a.arrow-left img, #magazin a.arrow-right img, #program a.arrow-left img, #program a.arrow-right img, #hir a.arrow-left img, #hir a.arrow-right img, #club a.arrow-left img, #club a.arrow-right img, #kepriport a.arrow-left img, #kepriport a.arrow-right img {
-	height:1em;
-	width:auto;
-	float:none;
-	padding:0.5em;
-}
-
 
 #index a:active {
 	background: #de7200; /* Old browsers */
